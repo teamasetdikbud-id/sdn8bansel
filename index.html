@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDN 8 Banawa Selatan | Cerdas, Berkarakter, Inovatif</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        primary: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d', },
+                        secondary: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #16a34a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #15803d; }
+        /* Style untuk Accordion Admin */
+        .admin-section-content { display: none; }
+        .admin-section-content.open { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden">
+
+    <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300 shadow-sm border-b border-gray-100" id="navbar">
+        <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-primary-600 text-white rounded-full flex items-center justify-center text-xl shadow-md group-hover:scale-105 transition-transform"><i class="fas fa-graduation-cap"></i></div>
+                <div>
+                    <h1 class="font-bold text-lg md:text-xl leading-tight text-gray-900 group-hover:text-primary-600 transition-colors">SDN 8 Banawa Selatan</h1>
+                    <p class="text-[10px] md:text-xs uppercase tracking-wider text-gray-500 font-semibold">Cerdas, Berkarakter, Inovatif</p>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-6 font-medium text-gray-600" id="dynamic-menu-container">
+                <!-- Fallback menu -->
+                <a href="#beranda" class="hover:text-primary-600 transition-colors">Beranda</a>
+                <a href="#profil" class="hover:text-primary-600 transition-colors">Profil</a>
+                <a href="#akademik" class="hover:text-primary-600 transition-colors">Akademik</a>
+                <a href="#aplikasi" class="bg-primary-600 text-white px-5 py-2.5 rounded-full hover:bg-primary-700 hover:shadow-lg transition-all transform hover:-translate-y-0.5 text-sm font-semibold ml-2">Login Sistem</a>
+            </div>
+
+            <button class="md:hidden text-gray-600 text-2xl focus:outline-none" id="btn-mobile-menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <section id="beranda" class="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-primary-900 text-white overflow-hidden">
+        <div id="dynamic-hero-bg" class="absolute inset-0 bg-cover bg-center opacity-40 transition-all duration-1000" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-800/80 to-transparent"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="fade-in">
+                <span id="dynamic-hero-badge" class="inline-block py-1.5 px-4 rounded-full bg-secondary-500 text-white text-xs font-bold uppercase tracking-wider mb-5 shadow-sm">Penerimaan Siswa Baru Dibuka</span>
+                <h2 id="dynamic-hero-title" class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">Membangun <span class="text-secondary-400">Generasi Emas</span> Berkarakter Pancasila.</h2>
+                <p id="dynamic-hero-subtitle" class="text-primary-100 text-lg mb-8 max-w-lg leading-relaxed">Selamat datang di website resmi SDN 8 Banawa Selatan. Kami berkomitmen memberikan pendidikan inklusif, inovatif, dan berpusat pada perkembangan holistik anak.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#profil" class="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-3.5 rounded-full font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">Lebih Lanjut</a>
+                    <a href="#aplikasi" class="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-8 py-3.5 rounded-full font-bold transition-all flex items-center gap-2"><i class="fas fa-play-circle"></i> Portal Siswa</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 text-gray-50">
+            <svg class="relative block w-full h-[50px] md:h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C-5.41,95.8,200.73,78.89,321.39,56.44Z" fill="currentColor"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section class="py-12 bg-gray-50 relative z-20 -mt-10">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center border border-gray-100 fade-in">
+                <div><div id="dynamic-stat-1-nilai" class="text-4xl font-extrabold text-primary-600 mb-1">12+</div><div id="dynamic-stat-1-label" class="text-sm text-gray-500 font-semibold uppercase tracking-wide">Rombel</div></div>
+                <div><div id="dynamic-stat-2-nilai" class="text-4xl font-extrabold text-primary-600 mb-1">24</div><div id="dynamic-stat-2-label" class="text-sm text-gray-500 font-semibold uppercase tracking-wide">Guru & Tendik</div></div>
+                <div><div id="dynamic-stat-3-nilai" class="text-4xl font-extrabold text-primary-600 mb-1">350+</div><div id="dynamic-stat-3-label" class="text-sm text-gray-500 font-semibold uppercase tracking-wide">Siswa Aktif</div></div>
+                <div><div id="dynamic-stat-4-nilai" class="text-4xl font-extrabold text-primary-600 mb-1">A</div><div id="dynamic-stat-4-label" class="text-sm text-gray-500 font-semibold uppercase tracking-wide">Akreditasi</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profil" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in relative">
+                    <img id="dynamic-profile-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Siswa Belajar" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover h-[400px]">
+                    <div class="absolute -bottom-6 -right-6 w-3/4 h-3/4 bg-secondary-400 rounded-2xl -z-10"></div>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-primary-600 font-bold uppercase tracking-wider mb-2">Profil Sekolah</h3>
+                    <h2 id="dynamic-profil-judul" class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Mendidik dengan Hati, Meraih Prestasi.</h2>
+                    <p id="dynamic-profil-deskripsi" class="text-gray-600 mb-6 leading-relaxed">SDN 8 Banawa Selatan adalah lembaga pendidikan dasar yang berdedikasi tinggi dalam menciptakan lingkungan belajar yang kondusif, aman, dan menyenangkan. Kami menerapkan Kurikulum Merdeka yang memberikan ruang seluas-luasnya bagi siswa untuk mengeksplorasi potensi diri mereka.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-primary-50 text-primary-600 rounded-xl flex items-center justify-center text-xl flex-shrink-0"><i class="fas fa-bullseye"></i></div>
+                            <div><h4 class="font-bold text-gray-900 text-lg">Visi</h4><p id="dynamic-profil-visi" class="text-gray-600 text-sm">Terwujudnya peserta didik yang cerdas, berkarakter mulia, dan berwawasan lingkungan berlandaskan profil pelajar pancasila.</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-primary-50 text-primary-600 rounded-xl flex items-center justify-center text-xl flex-shrink-0"><i class="fas fa-tasks"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">Misi</h4>
+                                <ul id="dynamic-profil-misi" class="text-gray-600 text-sm list-disc list-inside">
+                                    <li>Meningkatkan ketakwaan kepada Tuhan YME.</li>
+                                    <li>Melaksanakan pembelajaran yang kreatif dan inovatif.</li>
+                                    <li>Membina bakat dan minat siswa melalui ekstrakurikuler.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="akademik" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16 fade-in">
+                <h3 class="text-primary-600 font-bold uppercase tracking-wider mb-2">Akademik & Fasilitas</h3>
+                <h2 class="text-3xl font-bold text-gray-900">Mendukung Proses Pembelajaran Modern</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- KARTU RUMAH PENDIDIKAN -->
+                <a href="https://masukkan-link-rumah-pendidikan-anda-disini.com" target="_blank" class="block bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all group fade-in transform hover:-translate-y-1 cursor-pointer">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors"><i class="fas fa-home"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors flex items-center justify-between">Rumah Pendidikan <i class="fas fa-arrow-right text-sm opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1"></i></h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Akses platform Rumah Pendidikan terpadu untuk mendukung pembelajaran digital yang inovatif dan interaktif.</p>
+                </a>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all group fade-in" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Lab Komputer & TIK</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Fasilitas komputer memadai untuk pembelajaran literasi digital dan persiapan Asesmen Nasional Berbasis Komputer (ANBK).</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all group fade-in" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 bg-yellow-50 text-yellow-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-yellow-500 group-hover:text-white transition-colors"><i class="fas fa-futbol"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Ekstrakurikuler Aktif</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Pramuka, UKS, Olahraga, dan Kesenian daerah untuk mengembangkan minat dan bakat peserta didik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aplikasi" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-br from-primary-800 to-primary-900 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden fade-in text-white">
+                <div class="absolute top-0 right-0 opacity-10 pointer-events-none">
+                    <i class="fas fa-cloud text-[250px] -mt-10 -mr-10"></i>
+                </div>
+                <div class="relative z-10">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl font-bold mb-3">Sistem Informasi Akademik (SIAKAD)</h2>
+                        <p class="text-primary-100">Akses cepat ke portal E-Learning, Pendaftaran Siswa Baru, dan E-Rapor.</p>
+                    </div>
+                    <div id="dynamic-app-container" class="flex flex-wrap justify-center gap-4">
+                        <div class="text-primary-200 text-sm animate-pulse flex items-center justify-center w-full"><i class="fas fa-spinner fa-spin mr-2 text-xl"></i> Memuat portal aplikasi dari server...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-primary-600">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center text-xl">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h2 class="text-xl font-bold">SDN 8 Banawa Selatan</h2>
+                    </div>
+                    <p id="dynamic-footer-desc" class="text-gray-400 mb-6 text-sm leading-relaxed">Berkomitmen mencetak generasi cerdas, berkarakter, dan inovatif melalui pendidikan berkualitas yang berlandaskan Pancasila.</p>
+                    <div class="flex gap-4">
+                        <a id="dynamic-link-fb" href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a id="dynamic-link-ig" href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a id="dynamic-link-yt" href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6 border-b border-gray-800 pb-2">Kontak Kami</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-primary-500"></i>
+                            <span id="dynamic-kontak-alamat">Jl. Pendidikan No. 1, Desa Tolongano, Kec. Banawa Selatan, Kab. Donggala, Sulawesi Tengah</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary-500"></i>
+                            <span id="dynamic-kontak-email">info@sdn8bansel.sch.id</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-primary-500"></i>
+                            <span id="dynamic-kontak-telp">(0451) 123456</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6 border-b border-gray-800 pb-2">Peta Lokasi</h3>
+                    <div class="w-full h-40 bg-gray-800 rounded-lg overflow-hidden relative">
+                        <!-- Ganti URL iframe ini dengan embed Google Maps Anda jika ada -->
+                        <iframe id="dynamic-kontak-maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.351234!2d119.82!3d-0.78!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwNDYnNDguMCJTIDExOcKwNDknMTIuMCJF!5e0!3m2!1sid!2sid!4v1631234567890!5m2!1sid!2sid" class="absolute inset-0 w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs md:text-sm text-center md:text-left text-gray-400">
+                    <span id="secret-admin-trigger" class="cursor-pointer">&copy; <span id="current-year">2024</span> SDN 8 Banawa Selatan. Semua Hak Cipta Dilindungi.</span> 
+                    <span id="visible-admin-trigger" class="ml-3 px-3 py-1.5 bg-gray-800 rounded-md text-primary-400 hover:text-white hover:bg-primary-600 cursor-pointer transition-colors inline-flex items-center gap-2"><i class="fas fa-lock text-xs"></i> Admin Panel</span>
+                </p>
+                <div class="text-xs md:text-sm text-gray-400">
+                    Dibuat dengan <i class="fas fa-heart text-red-500 mx-1"></i> untuk Kemajuan Pendidikan
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="custom-alert" class="fixed inset-0 z-[110] hidden items-center justify-center bg-gray-900/80 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl p-6 max-w-sm w-full mx-4 shadow-2xl text-center transform transition-all">
+            <div id="custom-alert-icon" class="w-16 h-16 mx-auto rounded-full flex items-center justify-center text-3xl mb-4"></div>
+            <h3 id="custom-alert-title" class="text-xl font-bold text-gray-900 mb-2"></h3>
+            <p id="custom-alert-msg" class="text-gray-600 text-sm mb-6"></p>
+            <div class="flex gap-3 justify-center">
+                <button id="btn-alert-close" class="flex-1 px-6 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-lg">Tutup</button>
+                <button id="btn-alert-confirm" class="hidden flex-1 px-6 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg">Ya, Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-login-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-gray-900/80 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full mx-4 shadow-2xl">
+            <div class="text-center mb-8">
+                <div class="w-20 h-20 bg-primary-50 text-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl"><i class="fas fa-shield-alt"></i></div>
+                <h3 class="text-2xl font-extrabold text-gray-900">Akses Admin</h3>
+            </div>
+            <div class="space-y-4">
+                <input type="password" id="admin-password" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white outline-none focus:ring-2 focus:ring-primary-500" placeholder="Password Admin...">
+                <button id="btn-login-admin" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3.5 rounded-xl transition-all">Masuk Dashboard</button>
+                <button id="btn-close-modal" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-3.5 rounded-xl transition-all">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="fixed bottom-6 right-6 w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center shadow-xl opacity-0 invisible hover:bg-primary-700 transition-all transform hover:-translate-y-1 z-40" id="back-to-top"><i class="fas fa-chevron-up"></i></a>
+
+    <section id="admin-dashboard-section" class="fixed inset-0 z-[90] hidden bg-gray-50 overflow-y-auto">
+        <div class="bg-gray-900 text-white py-4 px-6 sticky top-0 z-10 flex justify-between items-center shadow-lg border-b border-gray-800">
+            <h2 class="text-xl font-bold flex items-center"><i class="fas fa-cogs mr-2"></i>Panel Admin CMS</h2>
+            <button id="btn-logout" class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-lg font-bold text-sm transition-all">Keluar</button>
+        </div>
+        
+        <div class="container mx-auto px-4 py-8 max-w-5xl">
+            <!-- TAB NAVIGASI -->
+            <div class="flex flex-wrap gap-2 bg-white rounded-2xl p-2 mb-8 shadow-sm border border-gray-200">
+                <button onclick="switchTab('tab-tampilan')" id="btn-tab-tampilan" class="admin-tab-btn flex-1 py-3 px-4 text-sm font-bold rounded-xl bg-primary-50 text-primary-700 border border-primary-100 transition-all">Tampilan Utama</button>
+                <button onclick="switchTab('tab-menu')" id="btn-tab-menu" class="admin-tab-btn flex-1 py-3 px-4 text-sm font-bold rounded-xl text-gray-500 hover:bg-gray-50 border border-transparent transition-all">Menu Navigasi</button>
+                <button onclick="switchTab('tab-aplikasi')" id="btn-tab-aplikasi" class="admin-tab-btn flex-1 py-3 px-4 text-sm font-bold rounded-xl text-gray-500 hover:bg-gray-50 border border-transparent transition-all">Portal Aplikasi</button>
+            </div>
+
+            <!-- TAB 1: TAMPILAN KONTEN LENGKAP -->
+            <div id="tab-tampilan" class="admin-tab-content block bg-white rounded-3xl p-6 md:p-10 mb-8 shadow-sm border border-gray-200">
+                <h3 class="text-2xl font-bold mb-6 border-b pb-4 text-gray-800">Pengaturan Konten Halaman</h3>
+                
+                <div class="space-y-4">
+                    
+                    <!-- Accordion 1: Gambar Utama -->
+                    <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                        <button class="w-full bg-gray-50 px-6 py-4 font-bold text-left text-gray-800 hover:bg-gray-100 flex justify-between items-center" onclick="toggleAccordion('acc-gambar')">
+                            <span>1. Gambar & Banner Atas</span><i class="fas fa-chevron-down text-gray-400"></i>
+                        </button>
+                        <div id="acc-gambar" class="admin-section-content bg-white p-6 open">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div class="border border-dashed border-gray-300 bg-white p-4 rounded-xl text-center">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">Upload Hero Banner</label>
+                                    <input type="file" id="file-hero-image" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-primary-50 file:text-primary-700 cursor-pointer mb-2">
+                                    <input type="text" id="setting-hero-image" class="w-full px-3 py-2 text-xs border border-gray-200 rounded outline-none focus:ring-2 focus:ring-primary-500 bg-gray-50" placeholder="Atau paste URL gambar...">
+                                </div>
+                                <div class="border border-dashed border-gray-300 bg-white p-4 rounded-xl text-center">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">Upload Gambar Profil</label>
+                                    <input type="file" id="file-profile-image" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-primary-50 file:text-primary-700 cursor-pointer mb-2">
+                                    <input type="text" id="setting-profile-image" class="w-full px-3 py-2 text-xs border border-gray-200 rounded outline-none focus:ring-2 focus:ring-primary-500 bg-gray-50" placeholder="Atau paste URL gambar...">
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <input type="text" id="setting-hero-badge" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500" placeholder="Label Badge (Misal: PENERIMAAN SISWA BARU DIBUKA)">
+                                <input type="text" id="setting-hero-title" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500" placeholder="Judul Besar">
+                                <textarea id="setting-hero-subtitle" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500" placeholder="Sub-Judul Deskripsi Singkat"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion 2: Statistik -->
+                    <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                        <button class="w-full bg-gray-50 px-6 py-4 font-bold text-left text-gray-800 hover:bg-gray-100 flex justify-between items-center" onclick="toggleAccordion('acc-stat')">
+                            <span>2. Angka Statistik</span><i class="fas fa-chevron-down text-gray-400"></i>
+                        </button>
+                        <div id="acc-stat" class="admin-section-content bg-white p-6">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="bg-gray-50 p-3 rounded-xl border">
+                                    <input type="text" id="setting-stat-1-nilai" class="w-full px-3 py-2 border rounded-lg text-primary-600 font-bold mb-2 text-center" placeholder="12+">
+                                    <input type="text" id="setting-stat-1-label" class="w-full px-3 py-2 border rounded-lg text-sm text-center" placeholder="Rombel">
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded-xl border">
+                                    <input type="text" id="setting-stat-2-nilai" class="w-full px-3 py-2 border rounded-lg text-primary-600 font-bold mb-2 text-center" placeholder="24">
+                                    <input type="text" id="setting-stat-2-label" class="w-full px-3 py-2 border rounded-lg text-sm text-center" placeholder="Guru">
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded-xl border">
+                                    <input type="text" id="setting-stat-3-nilai" class="w-full px-3 py-2 border rounded-lg text-primary-600 font-bold mb-2 text-center" placeholder="350+">
+                                    <input type="text" id="setting-stat-3-label" class="w-full px-3 py-2 border rounded-lg text-sm text-center" placeholder="Siswa">
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded-xl border">
+                                    <input type="text" id="setting-stat-4-nilai" class="w-full px-3 py-2 border rounded-lg text-primary-600 font-bold mb-2 text-center" placeholder="A">
+                                    <input type="text" id="setting-stat-4-label" class="w-full px-3 py-2 border rounded-lg text-sm text-center" placeholder="Akreditasi">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion 3: Profil Visi Misi -->
+                    <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                        <button class="w-full bg-gray-50 px-6 py-4 font-bold text-left text-gray-800 hover:bg-gray-100 flex justify-between items-center" onclick="toggleAccordion('acc-profil')">
+                            <span>3. Profil, Visi, dan Misi</span><i class="fas fa-chevron-down text-gray-400"></i>
+                        </button>
+                        <div id="acc-profil" class="admin-section-content bg-white p-6">
+                            <div class="space-y-4">
+                                <input type="text" id="setting-profil-judul" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500" placeholder="Judul Seksi Profil">
+                                <textarea id="setting-profil-deskripsi" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500" placeholder="Paragraf Deskripsi Profil Sekolah"></textarea>
+                                <hr class="my-4">
+                                <textarea id="setting-profil-visi" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500" placeholder="Teks Visi Sekolah"></textarea>
+                                <label class="block text-xs font-bold text-gray-500 uppercase">Misi Sekolah (Pisahkan Tiap Poin dengan Enter/Baris Baru)</label>
+                                <textarea id="setting-profil-misi" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500 font-mono text-sm leading-relaxed" placeholder="Meningkatkan ketakwaan...&#10;Melaksanakan pembelajaran...&#10;Membina bakat..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion 4: Kontak & Footer -->
+                    <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                        <button class="w-full bg-gray-50 px-6 py-4 font-bold text-left text-gray-800 hover:bg-gray-100 flex justify-between items-center" onclick="toggleAccordion('acc-kontak')">
+                            <span>4. Info Footer & Kontak</span><i class="fas fa-chevron-down text-gray-400"></i>
+                        </button>
+                        <div id="acc-kontak" class="admin-section-content bg-white p-6">
+                            <div class="space-y-4">
+                                <textarea id="setting-footer-desc" rows="2" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500" placeholder="Deskripsi Singkat di Footer Bawah Logo"></textarea>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input type="text" id="setting-kontak-alamat" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500" placeholder="Alamat Lengkap">
+                                    <input type="email" id="setting-kontak-email" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500" placeholder="Alamat Email">
+                                    <input type="text" id="setting-kontak-telp" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500" placeholder="Nomor Telepon">
+                                    <input type="text" id="setting-kontak-maps" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500 text-xs" placeholder="URL Embed Iframe Google Maps (https://www.google.com/maps/embed?pb=...)">
+                                </div>
+                                <h4 class="font-bold text-gray-700 text-sm mt-4 border-t pt-4">Link Sosial Media</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <input type="url" id="setting-link-fb" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500 text-sm" placeholder="Link Facebook">
+                                    <input type="url" id="setting-link-ig" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500 text-sm" placeholder="Link Instagram">
+                                    <input type="url" id="setting-link-yt" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500 text-sm" placeholder="Link YouTube">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Simpan -->
+                    <div class="sticky bottom-0 bg-white z-10 p-4 rounded-xl shadow-[0_-4px_10px_rgba(0,0,0,0.05)] border mt-4 text-right">
+                        <button id="btn-save-settings" class="bg-primary-600 text-white font-bold py-3.5 px-8 rounded-xl hover:bg-primary-700 transition shadow-md flex items-center justify-center w-full md:w-auto ml-auto gap-2">
+                            <i class="fas fa-save"></i> SIMPAN SEMUA PERUBAHAN TAMPILAN
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TAB 2: MENU NAVIGASI -->
+            <div id="tab-menu" class="admin-tab-content hidden bg-white rounded-3xl p-6 md:p-10 mb-8 shadow-sm border border-gray-200">
+                <div class="mb-8 border-b border-gray-100 pb-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Manajemen Menu Navigasi</h3>
+                    <p class="text-gray-500">Atur link yang muncul pada menu bar bagian atas website.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200 mb-8 flex flex-wrap md:flex-nowrap gap-4 items-end">
+                    <div class="w-full md:w-5/12">
+                        <label class="block text-xs font-bold text-gray-600 mb-2 uppercase tracking-wide">Nama Menu</label>
+                        <input type="text" id="add-menu-label" placeholder="Contoh: Galeri" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500 bg-white">
+                    </div>
+                    <div class="w-full md:w-5/12">
+                        <label class="block text-xs font-bold text-gray-600 mb-2 uppercase tracking-wide">Target Link / URL</label>
+                        <input type="text" id="add-menu-target" placeholder="Contoh: #profil atau https://..." class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500 bg-white">
+                    </div>
+                    <div class="w-full md:w-2/12">
+                        <button id="btn-add-menu" class="w-full bg-primary-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-primary-700 transition shadow-md flex items-center justify-center gap-2 w-full"><i class="fas fa-plus"></i> Tambah</button>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto rounded-xl border border-gray-200">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="p-4 font-semibold text-gray-700">Label Menu</th>
+                                <th class="p-4 font-semibold text-gray-700">Target Link</th>
+                                <th class="p-4 font-semibold text-gray-700 text-center w-28">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-menu-list" class="divide-y divide-gray-100 text-sm bg-white"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 3: PORTAL APLIKASI -->
+            <div id="tab-aplikasi" class="admin-tab-content hidden bg-white rounded-3xl p-6 md:p-10 mb-8 shadow-sm border border-gray-200">
+                <div class="mb-8 border-b border-gray-100 pb-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Portal Aplikasi & E-Learning</h3>
+                    <p class="text-gray-500">Tambahkan link ke aplikasi akademik sekolah atau platform kementerian.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200 mb-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                    <div class="md:col-span-4">
+                        <label class="block text-xs font-bold text-gray-600 mb-2 uppercase tracking-wide">Nama Aplikasi</label>
+                        <input type="text" id="add-app-name" placeholder="E-Rapor Kurmer" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500 bg-white">
+                    </div>
+                    <div class="md:col-span-4">
+                        <label class="block text-xs font-bold text-gray-600 mb-2 uppercase tracking-wide">URL Lengkap</label>
+                        <input type="url" id="add-app-url" placeholder="https://..." class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500 bg-white">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-xs font-bold text-gray-600 mb-2 uppercase tracking-wide">Kode Ikon</label>
+                        <input type="text" id="add-app-icon" placeholder="fa-book" class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-primary-500 bg-white text-center" title="Buka fontawesome.com untuk daftar ikon">
+                    </div>
+                    <div class="md:col-span-2">
+                        <button id="btn-add-app" class="w-full bg-primary-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-primary-700 transition shadow-md flex items-center justify-center gap-2 w-full"><i class="fas fa-plus"></i> Tambah</button>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto rounded-xl border border-gray-200">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="p-4 font-semibold text-gray-700 w-16 text-center">Ikon</th>
+                                <th class="p-4 font-semibold text-gray-700">Nama Aplikasi</th>
+                                <th class="p-4 font-semibold text-gray-700">URL Target</th>
+                                <th class="p-4 font-semibold text-gray-700 text-center w-28">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-app-list" class="divide-y divide-gray-100 text-sm bg-white"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // =========================================================================
+        // PENTING: MASUKKAN URL APP SCRIPT ANDA DI ANTARA TANDA KUTIP DI BAWAH INI
+        const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzlVg4j3TDqdqTPjoWb_YrXD5dgf6DJgoNxQ5F5GSixdv6sHAsEX6LGCbFb6v8mWLD-/exec"; 
+        // =========================================================================
+
+        document.getElementById('current-year').innerText = new Date().getFullYear();
+
+        window.switchTab = function(tabId) {
+            document.querySelectorAll('.admin-tab-content').forEach(el => el.classList.remove('block'));
+            document.querySelectorAll('.admin-tab-content').forEach(el => el.classList.add('hidden'));
+            
+            document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-primary-50', 'text-primary-700', 'border-primary-100');
+                btn.classList.add('text-gray-500', 'hover:bg-gray-50', 'border-transparent');
+            });
+            
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById(tabId).classList.add('block');
+            document.getElementById('btn-' + tabId).classList.add('bg-primary-50', 'text-primary-700', 'border-primary-100');
+            document.getElementById('btn-' + tabId).classList.remove('text-gray-500', 'hover:bg-gray-50', 'border-transparent');
+        };
+
+        window.toggleAccordion = function(accId) {
+            const el = document.getElementById(accId);
+            if(el.classList.contains('open')) {
+                el.classList.remove('open');
+                el.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
+                el.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
+            } else {
+                el.classList.add('open');
+                el.previousElementSibling.querySelector('i').classList.remove('fa-chevron-down');
+                el.previousElementSibling.querySelector('i').classList.add('fa-chevron-up');
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const btt = document.getElementById('back-to-top');
+            const nav = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 150) { btt.classList.remove('opacity-0', 'invisible'); nav.classList.add('shadow-md', 'py-2'); nav.classList.remove('py-3', 'md:py-4', 'border-b'); } 
+                else { btt.classList.add('opacity-0', 'invisible'); nav.classList.remove('shadow-md', 'py-2'); nav.classList.add('py-3', 'md:py-4', 'border-b'); }
+            });
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); } });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            // Custom Alert
+            const customAlert = document.getElementById('custom-alert');
+            const alertTitle = document.getElementById('custom-alert-title');
+            const alertMsg = document.getElementById('custom-alert-msg');
+            const alertIcon = document.getElementById('custom-alert-icon');
+            let confirmActionCallback = null;
+            
+            function showAlert(type, title, message, onConfirm = null) {
+                alertTitle.innerText = title; alertMsg.innerText = message;
+                document.getElementById('btn-alert-confirm').classList.add('hidden');
+                document.getElementById('btn-alert-close').innerText = "Tutup";
+
+                if(type === 'error') { alertIcon.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center text-3xl mb-4 bg-red-50 text-red-500"; alertIcon.innerHTML = '<i class="fas fa-exclamation-triangle"></i>'; } 
+                else if(type === 'success') { alertIcon.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center text-3xl mb-4 bg-green-50 text-green-500"; alertIcon.innerHTML = '<i class="fas fa-check"></i>'; } 
+                else if(type === 'warning') { alertIcon.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center text-3xl mb-4 bg-yellow-50 text-yellow-500"; alertIcon.innerHTML = '<i class="fas fa-exclamation-circle"></i>'; } 
+                else if(type === 'confirm') { 
+                    alertIcon.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center text-3xl mb-4 bg-blue-50 text-blue-500"; alertIcon.innerHTML = '<i class="fas fa-question"></i>'; 
+                    document.getElementById('btn-alert-confirm').classList.remove('hidden'); document.getElementById('btn-alert-close').innerText = "Batal"; confirmActionCallback = onConfirm;
+                }
+                customAlert.classList.remove('hidden'); customAlert.classList.add('flex');
+            }
+            document.getElementById('btn-alert-close').addEventListener('click', () => { customAlert.classList.add('hidden'); customAlert.classList.remove('flex'); confirmActionCallback = null; });
+            document.getElementById('btn-alert-confirm').addEventListener('click', () => { if(confirmActionCallback) confirmActionCallback(); customAlert.classList.add('hidden'); customAlert.classList.remove('flex'); });
+
+            function getDirectImageUrl(url) {
+                if (!url) return '';
+                let match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/); 
+                if (!match) match = url.match(/id=([a-zA-Z0-9_-]+)/); 
+                if (match && url.includes('drive.google.com')) { return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1920`; }
+                return url; 
+            }
+
+            // Global State Data
+            let appsData = [];
+            let menuData = [];
+            let settingsData = {};
+            let adminPassword = "";
+
+            async function fetchPublicData() {
+                if(!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes("ISI_URL_NYA")) {
+                    console.log("Menunggu setup URL App Script..."); return;
+                }
+                try {
+                    const response = await fetch(GAS_WEB_APP_URL);
+                    const result = await response.json();
+                    if(result.status === "success") {
+                        appsData = result.aplikasi || [];
+                        menuData = result.menu || [];
+                        settingsData = result.pengaturan || {};
+                        renderPublicUI();
+                        if(adminPassword) renderAdminPanels();
+                    }
+                } catch (e) { console.error("Koneksi gagal", e); }
+            }
+
+            function renderPublicUI() {
+                // Menu Navigasi
+                const menuContainer = document.getElementById('dynamic-menu-container');
+                if(menuData.length > 0) {
+                    menuContainer.innerHTML = '';
+                    menuData.forEach(m => {
+                        menuContainer.innerHTML += `<a href="${m['Target Link']}" class="hover:text-primary-600 transition-colors font-semibold">${m['Label Menu']}</a>`;
+                    });
+                    menuContainer.innerHTML += `<a href="#aplikasi" class="bg-primary-600 text-white px-5 py-2.5 rounded-full hover:bg-primary-700 hover:shadow-lg transition-all transform hover:-translate-y-0.5 text-sm font-bold ml-2">Login Sistem</a>`;
+                }
+                
+                // Hero Banner
+                if(settingsData.hero_image) document.getElementById('dynamic-hero-bg').style.backgroundImage = `url('${getDirectImageUrl(settingsData.hero_image)}')`;
+                if(settingsData.hero_badge) document.getElementById('dynamic-hero-badge').innerHTML = settingsData.hero_badge;
+                if(settingsData.hero_title) document.getElementById('dynamic-hero-title').innerHTML = settingsData.hero_title;
+                if(settingsData.hero_subtitle) document.getElementById('dynamic-hero-subtitle').innerHTML = settingsData.hero_subtitle;
+
+                // Statistik
+                ['1','2','3','4'].forEach(i => {
+                    if(settingsData[`stat_${i}_nilai`]) {
+                        document.getElementById(`dynamic-stat-${i}-nilai`).innerText = settingsData[`stat_${i}_nilai`];
+                        document.getElementById(`dynamic-stat-${i}-label`).innerText = settingsData[`stat_${i}_label`];
+                    }
+                });
+
+                // Profil, Visi, Misi
+                if(settingsData.profile_image) document.getElementById('dynamic-profile-img').src = getDirectImageUrl(settingsData.profile_image);
+                if(settingsData.profil_judul) document.getElementById('dynamic-profil-judul').innerText = settingsData.profil_judul;
+                if(settingsData.profil_deskripsi) document.getElementById('dynamic-profil-deskripsi').innerText = settingsData.profil_deskripsi;
+                if(settingsData.profil_visi) document.getElementById('dynamic-profil-visi').innerText = settingsData.profil_visi;
+                
+                // Misi (Pisahkan per baris jadi List HTML)
+                if(settingsData.profil_misi) {
+                    const ulMisi = document.getElementById('dynamic-profil-misi');
+                    ulMisi.innerHTML = '';
+                    const barisMisi = settingsData.profil_misi.split('\n');
+                    barisMisi.forEach(m => {
+                        if(m.trim() !== '') ulMisi.innerHTML += `<li>${m.trim()}</li>`;
+                    });
+                }
+
+                // Footer & Kontak
+                if(settingsData.footer_desc) document.getElementById('dynamic-footer-desc').innerText = settingsData.footer_desc;
+                if(settingsData.kontak_alamat) document.getElementById('dynamic-kontak-alamat').innerText = settingsData.kontak_alamat;
+                if(settingsData.kontak_email) document.getElementById('dynamic-kontak-email').innerText = settingsData.kontak_email;
+                if(settingsData.kontak_telp) document.getElementById('dynamic-kontak-telp').innerText = settingsData.kontak_telp;
+                if(settingsData.kontak_maps) document.getElementById('dynamic-kontak-maps').src = settingsData.kontak_maps;
+
+                if(settingsData.link_fb) document.getElementById('dynamic-link-fb').href = settingsData.link_fb;
+                if(settingsData.link_ig) document.getElementById('dynamic-link-ig').href = settingsData.link_ig;
+                if(settingsData.link_yt) document.getElementById('dynamic-link-yt').href = settingsData.link_yt;
+
+                // Portal Aplikasi List
+                const appContainer = document.getElementById('dynamic-app-container');
+                if(appsData.length > 0) {
+                    appContainer.innerHTML = '';
+                    appsData.forEach(app => {
+                        const iconClass = app.Icon_FontAwesome ? app.Icon_FontAwesome : 'fa-link';
+                        appContainer.innerHTML += `
+                        <a href="${app.URL}" target="_blank" class="bg-white hover:bg-gray-50 border border-gray-100 text-gray-800 hover:shadow-xl p-5 md:p-6 rounded-2xl flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4 transition-all transform hover:-translate-y-1 group w-full md:w-[calc(33.333%-1rem)]">
+                            <div class="w-14 h-14 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center group-hover:bg-primary-600 group-hover:text-white transition-all text-2xl flex-shrink-0 shadow-sm"><i class="fas ${iconClass}"></i></div>
+                            <div class="overflow-hidden w-full">
+                                <h4 class="font-bold text-gray-900 truncate text-lg mb-1 group-hover:text-primary-600 transition-colors">${app['Nama Aplikasi']}</h4>
+                                <p class="text-xs text-gray-500 truncate w-full">Kunjungi Portal <i class="fas fa-arrow-right ml-1"></i></p>
+                            </div>
+                        </a>`;
+                    });
+                }
+            }
+
+            fetchPublicData();
+
+            const adminModal = document.getElementById('admin-login-modal');
+            document.getElementById('visible-admin-trigger').addEventListener('click', () => { adminModal.classList.remove('hidden'); adminModal.classList.add('flex'); });
+            document.getElementById('secret-admin-trigger').addEventListener('click', () => { adminModal.classList.remove('hidden'); adminModal.classList.add('flex'); });
+            document.getElementById('btn-close-modal').addEventListener('click', () => { adminModal.classList.add('hidden'); adminModal.classList.remove('flex'); });
+
+            document.getElementById('btn-login-admin').addEventListener('click', async () => {
+                const pwd = document.getElementById('admin-password').value;
+                if(!pwd || GAS_WEB_APP_URL.includes("ISI_URL_NYA")) return showAlert('warning', 'Akses Ditolak', 'Pastikan URL App Script sudah dipaste di HTML dan Password sudah diisi.');
+                
+                const btn = document.getElementById('btn-login-admin');
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Memeriksa...';
+                
+                try {
+                    const response = await fetch(GAS_WEB_APP_URL, { method: 'POST', body: JSON.stringify({ action: "login", password: pwd }), headers: { "Content-Type": "text/plain" } });
+                    const result = await response.json();
+                    if (result.status === "success") {
+                        adminPassword = pwd; 
+                        adminModal.classList.add('hidden'); adminModal.classList.remove('flex');
+                        document.getElementById('admin-dashboard-section').classList.remove('hidden');
+                        document.body.style.overflow = "hidden";
+                        renderAdminPanels(); 
+                    } else { showAlert('error', 'Gagal', 'Password Salah atau ID Drive Folder belum diset di backend.'); }
+                } catch(e) { showAlert('error', 'Error Koneksi', 'Gagal terhubung ke server database Google.'); } 
+                finally { btn.innerHTML = "Masuk Dashboard"; document.getElementById('admin-password').value = ''; }
+            });
+
+            document.getElementById('btn-logout').addEventListener('click', () => { document.getElementById('admin-dashboard-section').classList.add('hidden'); adminPassword = ""; document.body.style.overflow = "auto"; });
+
+            function renderAdminPanels() {
+                // Populate Inputs Tampilan
+                document.getElementById('setting-hero-image').value = settingsData.hero_image || '';
+                document.getElementById('setting-profile-image').value = settingsData.profile_image || '';
+                document.getElementById('setting-hero-badge').value = settingsData.hero_badge || '';
+                document.getElementById('setting-hero-title').value = settingsData.hero_title || '';
+                document.getElementById('setting-hero-subtitle').value = settingsData.hero_subtitle || '';
+                
+                ['1','2','3','4'].forEach(i => {
+                    document.getElementById(`setting-stat-${i}-nilai`).value = settingsData[`stat_${i}_nilai`] || '';
+                    document.getElementById(`setting-stat-${i}-label`).value = settingsData[`stat_${i}_label`] || '';
+                });
+
+                document.getElementById('setting-profil-judul').value = settingsData.profil_judul || '';
+                document.getElementById('setting-profil-deskripsi').value = settingsData.profil_deskripsi || '';
+                document.getElementById('setting-profil-visi').value = settingsData.profil_visi || '';
+                document.getElementById('setting-profil-misi').value = settingsData.profil_misi || '';
+                
+                document.getElementById('setting-footer-desc').value = settingsData.footer_desc || '';
+                document.getElementById('setting-kontak-alamat').value = settingsData.kontak_alamat || '';
+                document.getElementById('setting-kontak-email').value = settingsData.kontak_email || '';
+                document.getElementById('setting-kontak-telp').value = settingsData.kontak_telp || '';
+                document.getElementById('setting-kontak-maps').value = settingsData.kontak_maps || '';
+                
+                document.getElementById('setting-link-fb').value = settingsData.link_fb || '';
+                document.getElementById('setting-link-ig').value = settingsData.link_ig || '';
+                document.getElementById('setting-link-yt').value = settingsData.link_yt || '';
+
+                // Populate Tables
+                const tbodyMenu = document.getElementById('admin-menu-list');
+                tbodyMenu.innerHTML = '';
+                menuData.forEach(m => {
+                    tbodyMenu.innerHTML += `
+                    <tr class="hover:bg-gray-50 border-b border-gray-50">
+                        <td class="p-4 font-medium text-gray-800">${m['Label Menu']}</td>
+                        <td class="p-4 text-blue-500 font-mono text-xs">${m['Target Link']}</td>
+                        <td class="p-4 text-center">
+                            <button onclick="adminAction('deleteMenu', '${m.ID}')" class="text-red-500 hover:bg-red-50 hover:text-red-600 p-2 rounded-lg transition-colors"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>`;
+                });
+
+                const tbodyApp = document.getElementById('admin-app-list');
+                tbodyApp.innerHTML = '';
+                appsData.forEach(app => {
+                    tbodyApp.innerHTML += `
+                    <tr class="hover:bg-gray-50 border-b border-gray-50">
+                        <td class="p-4 text-center"><i class="fas ${app.Icon_FontAwesome} text-primary-500 text-lg"></i></td>
+                        <td class="p-4 font-medium text-gray-800">${app['Nama Aplikasi']}</td>
+                        <td class="p-4 text-blue-500 font-mono text-xs truncate max-w-[150px]"><a href="${app.URL}" target="_blank" class="hover:underline">${app.URL}</a></td>
+                        <td class="p-4 text-center">
+                            <button onclick="adminAction('deleteAplikasi', '${app.ID}')" class="text-red-500 hover:bg-red-50 hover:text-red-600 p-2 rounded-lg transition-colors"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>`;
+                });
+            }
+
+            async function compressImage(file, maxWidth) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = event => {
+                        const img = new Image();
+                        img.src = event.target.result;
+                        img.onload = () => {
+                            const canvas = document.createElement('canvas');
+                            let width = img.width; let height = img.height;
+                            if (width > maxWidth) { height = Math.round((height * maxWidth) / width); width = maxWidth; }
+                            canvas.width = width; canvas.height = height;
+                            const ctx = canvas.getContext('2d');
+                            ctx.drawImage(img, 0, 0, width, height);
+                            resolve(canvas.toDataURL('image/jpeg', 0.8)); // 80% Kualitas JPG
+                        };
+                    };
+                });
+            }
+
+            async function uploadToGas(base64Data, filename) {
+                const res = await fetch(GAS_WEB_APP_URL, {
+                    method: 'POST', body: JSON.stringify({ action: "uploadImage", password: adminPassword, base64: base64Data, filename: filename }), headers: { "Content-Type": "text/plain" }
+                });
+                const result = await res.json();
+                if(result.status === "success") return result.url;
+                throw new Error(result.message || "Gagal mengunggah gambar ke Drive");
+            }
+
+            window.adminAction = async function(actionType, id = null, payloadData = null) {
+                if(actionType.includes('delete')) {
+                    showAlert('confirm', 'Hapus Data?', 'Yakin ingin menghapus data ini secara permanen?', () => executePost(actionType, id, payloadData));
+                } else {
+                    executePost(actionType, id, payloadData);
+                }
+            };
+
+            async function executePost(action, id, data) {
+                let btnTarget = null, oriBtnText = '';
+                if(action === 'addMenu') btnTarget = document.getElementById('btn-add-menu');
+                if(action === 'addAplikasi') btnTarget = document.getElementById('btn-add-app');
+                
+                if(btnTarget) { oriBtnText = btnTarget.innerHTML; btnTarget.innerHTML = '<i class="fas fa-spinner fa-spin"></i>'; btnTarget.disabled = true; }
+
+                try {
+                    const response = await fetch(GAS_WEB_APP_URL, { method: 'POST', body: JSON.stringify({ action: action, password: adminPassword, id: id, data: data }), headers: { "Content-Type": "text/plain" } });
+                    const result = await response.json();
+                    
+                    if(result.status === "success") {
+                        if(!action.includes('delete')) showAlert('success', 'Berhasil', result.message);
+                        await fetchPublicData(); 
+                    } else { showAlert('error', 'Gagal Menyimpan', result.message); }
+                } catch(e) { showAlert('error', 'Error Jaringan', 'Gagal menghubungi server Google Scripts.'); } 
+                finally { if(btnTarget) { btnTarget.innerHTML = oriBtnText; btnTarget.disabled = false; } }
+            }
+
+            document.getElementById('btn-save-settings').addEventListener('click', async () => {
+                const btn = document.getElementById('btn-save-settings');
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sedang Mengunggah... JANGAN DITUTUP';
+                btn.disabled = true;
+
+                try {
+                    const fileHero = document.getElementById('file-hero-image').files[0];
+                    if (fileHero) {
+                        const base64Hero = await compressImage(fileHero, 1920);
+                        const urlHero = await uploadToGas(base64Hero, "hero_banner.jpg");
+                        document.getElementById('setting-hero-image').value = urlHero;
+                    }
+
+                    const fileProfile = document.getElementById('file-profile-image').files[0];
+                    if (fileProfile) {
+                        const base64Profile = await compressImage(fileProfile, 800);
+                        const urlProfile = await uploadToGas(base64Profile, "profil_sekolah.jpg");
+                        document.getElementById('setting-profile-image').value = urlProfile;
+                    }
+
+                    const data = {
+                        hero_image: document.getElementById('setting-hero-image').value,
+                        profile_image: document.getElementById('setting-profile-image').value,
+                        hero_badge: document.getElementById('setting-hero-badge').value,
+                        hero_title: document.getElementById('setting-hero-title').value,
+                        hero_subtitle: document.getElementById('setting-hero-subtitle').value,
+                        stat_1_nilai: document.getElementById('setting-stat-1-nilai').value,
+                        stat_1_label: document.getElementById('setting-stat-1-label').value,
+                        stat_2_nilai: document.getElementById('setting-stat-2-nilai').value,
+                        stat_2_label: document.getElementById('setting-stat-2-label').value,
+                        stat_3_nilai: document.getElementById('setting-stat-3-nilai').value,
+                        stat_3_label: document.getElementById('setting-stat-3-label').value,
+                        stat_4_nilai: document.getElementById('setting-stat-4-nilai').value,
+                        stat_4_label: document.getElementById('setting-stat-4-label').value,
+                        profil_judul: document.getElementById('setting-profil-judul').value,
+                        profil_deskripsi: document.getElementById('setting-profil-deskripsi').value,
+                        profil_visi: document.getElementById('setting-profil-visi').value,
+                        profil_misi: document.getElementById('setting-profil-misi').value,
+                        footer_desc: document.getElementById('setting-footer-desc').value,
+                        kontak_alamat: document.getElementById('setting-kontak-alamat').value,
+                        kontak_email: document.getElementById('setting-kontak-email').value,
+                        kontak_telp: document.getElementById('setting-kontak-telp').value,
+                        kontak_maps: document.getElementById('setting-kontak-maps').value,
+                        link_fb: document.getElementById('setting-link-fb').value,
+                        link_ig: document.getElementById('setting-link-ig').value,
+                        link_yt: document.getElementById('setting-link-yt').value,
+                    };
+
+                    const response = await fetch(GAS_WEB_APP_URL, { method: 'POST', body: JSON.stringify({ action: "saveSettings", password: adminPassword, data: data }), headers: { "Content-Type": "text/plain" } });
+                    const result = await response.json();
+                    
+                    if(result.status === "success") {
+                        showAlert('success', 'Berhasil Disimpan!', 'Semua perubahan berhasil diperbarui di website.');
+                        fetchPublicData();
+                    } else { showAlert('error', 'Gagal', result.message); }
+                    
+                } catch (e) { 
+                    showAlert('error', 'Penyimpanan Gagal', `Error: ${e.message}. \n\nPastikan ID Folder Drive diisi di backend.gs.`); 
+                } 
+                finally { btn.innerHTML = '<i class="fas fa-save"></i> SIMPAN SEMUA PERUBAHAN TAMPILAN'; btn.disabled = false; }
+            });
+
+            document.getElementById('btn-add-menu').addEventListener('click', () => {
+                const label = document.getElementById('add-menu-label').value; const target = document.getElementById('add-menu-target').value;
+                if(!label || !target) return showAlert('warning', 'Perhatian', 'Nama dan Link tidak boleh kosong!');
+                adminAction('addMenu', null, { label, target });
+                document.getElementById('add-menu-label').value = ''; document.getElementById('add-menu-target').value = '';
+            });
+
+            document.getElementById('btn-add-app').addEventListener('click', () => {
+                const nama = document.getElementById('add-app-name').value; const url = document.getElementById('add-app-url').value; const icon = document.getElementById('add-app-icon').value || 'fa-link';
+                if(!nama || !url) return showAlert('warning', 'Perhatian', 'Nama Aplikasi dan URL tidak boleh kosong!');
+                adminAction('addAplikasi', null, { nama, url, icon });
+                document.getElementById('add-app-name').value = ''; document.getElementById('add-app-url').value = ''; document.getElementById('add-app-icon').value = '';
+            });
+
+        });
+    </script>
+</body>
+</html>
